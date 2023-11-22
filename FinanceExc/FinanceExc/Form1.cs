@@ -1,24 +1,74 @@
+using System.Text;
+
 namespace FinanceExc
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
+            numCheck.Maximum = decimal.MaxValue;
+            numExpense.Maximum = decimal.MaxValue;
+
         }
 
-        public class Items 
+        public class Item
         {
-            //items need a name, an amount. for methods they need to be able to be added to the lbx, and checked based on amount
-            string name = "";
-            decimal cost = 0;
+            public double Cost { get; set; }
+            public string Name { get; set; }
 
-            public decimal Cost { get { return cost; } }
+            public override string ToString() { return $"{Name} - €{Cost}"; }
 
-            public void AddExpense()
-            {
-            
-            }
         }
+
+        private void btnAddExpense_Click(object sender, EventArgs e)
+        {
+            Item item = new Item();
+            item.Cost = Convert.ToDouble(numExpense.Value);
+            item.Name = tbxName.Text;
+
+            lbxCollection.Items.Add(item);
+        }
+
+        private void btnShowExpense_Click(object sender, EventArgs e)
+        {
+            string message = "Items in collection:\n";
+
+            foreach (var item in lbxCollection.Items)
+            {
+                if (item is Item)
+                {
+                    message += $"{item}";
+                }
+            }
+
+            MessageBox.Show(message.ToString());
+        }
+
+
+        private void btnShowSameAmount_Click(object sender, EventArgs e)
+        {
+            double compareAmount = Convert.ToDouble(numCheck.Value);
+            string message = ($"Items with cost {compareAmount}: \n");
+            bool findMatchingItems = false;
+
+            foreach (var item in lbxCollection.Items)
+            { 
+                if (item is Item) 
+                {
+                    Item currentItem = (Item) item;
+                    if (currentItem.Cost == compareAmount) 
+                    {
+                        message += $"{currentItem}\n";
+                        findMatchingItems = true;
+                    }
+                }
+            }
+            if (findMatchingItems) { MessageBox.Show(message.ToString()); }
+            else { MessageBox.Show($"No items with cost {compareAmount}"); }
+        }
+
+
     }
 }
