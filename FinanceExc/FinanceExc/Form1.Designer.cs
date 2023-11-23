@@ -40,6 +40,7 @@
             btnShowSameAmount = new Button();
             numCheck = new NumericUpDown();
             label4 = new Label();
+            lblTotalCost = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numExpense).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCheck).BeginInit();
@@ -52,11 +53,9 @@
             groupBox1.Controls.Add(btnAddExpense);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(8, 7);
-            groupBox1.Margin = new Padding(2);
+            groupBox1.Location = new Point(11, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(210, 107);
+            groupBox1.Size = new Size(300, 178);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Expense form";
@@ -65,27 +64,24 @@
             // 
             numExpense.DecimalPlaces = 2;
             numExpense.Increment = new decimal(new int[] { 5, 0, 0, 131072 });
-            numExpense.Location = new Point(66, 37);
-            numExpense.Margin = new Padding(2);
+            numExpense.Location = new Point(94, 62);
             numExpense.Name = "numExpense";
-            numExpense.Size = new Size(63, 23);
+            numExpense.Size = new Size(90, 31);
             numExpense.TabIndex = 5;
             // 
             // tbxName
             // 
             tbxName.BorderStyle = BorderStyle.FixedSingle;
-            tbxName.Location = new Point(66, 14);
-            tbxName.Margin = new Padding(2);
+            tbxName.Location = new Point(94, 23);
             tbxName.Name = "tbxName";
-            tbxName.Size = new Size(131, 23);
+            tbxName.Size = new Size(186, 31);
             tbxName.TabIndex = 4;
             // 
             // btnAddExpense
             // 
-            btnAddExpense.Location = new Point(66, 59);
-            btnAddExpense.Margin = new Padding(2);
+            btnAddExpense.Location = new Point(94, 98);
             btnAddExpense.Name = "btnAddExpense";
-            btnAddExpense.Size = new Size(130, 38);
+            btnAddExpense.Size = new Size(186, 63);
             btnAddExpense.TabIndex = 3;
             btnAddExpense.Text = "Add expense to transaction log";
             btnAddExpense.UseVisualStyleBackColor = true;
@@ -94,40 +90,36 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(0, 41);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Location = new Point(0, 68);
             label2.Name = "label2";
-            label2.Size = new Size(54, 15);
+            label2.Size = new Size(81, 25);
             label2.TabIndex = 2;
             label2.Text = "Amount:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(0, 16);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(0, 27);
             label1.Name = "label1";
-            label1.Size = new Size(45, 15);
+            label1.Size = new Size(68, 25);
             label1.TabIndex = 1;
             label1.Text = "Name: ";
             // 
             // lbxCollection
             // 
             lbxCollection.FormattingEnabled = true;
-            lbxCollection.ItemHeight = 15;
+            lbxCollection.ItemHeight = 25;
             lbxCollection.Items.AddRange(new object[] { "" });
-            lbxCollection.Location = new Point(223, 29);
-            lbxCollection.Margin = new Padding(2);
+            lbxCollection.Location = new Point(319, 48);
             lbxCollection.Name = "lbxCollection";
-            lbxCollection.Size = new Size(185, 169);
+            lbxCollection.Size = new Size(263, 254);
             lbxCollection.TabIndex = 0;
             // 
             // btnShowExpense
             // 
-            btnShowExpense.Location = new Point(8, 118);
-            btnShowExpense.Margin = new Padding(2);
+            btnShowExpense.Location = new Point(11, 197);
             btnShowExpense.Name = "btnShowExpense";
-            btnShowExpense.Size = new Size(210, 22);
+            btnShowExpense.Size = new Size(300, 37);
             btnShowExpense.TabIndex = 4;
             btnShowExpense.Text = "Show all expenses";
             btnShowExpense.UseVisualStyleBackColor = true;
@@ -136,19 +128,17 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(8, 155);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(11, 258);
             label3.Name = "label3";
-            label3.Size = new Size(54, 15);
+            label3.Size = new Size(81, 25);
             label3.TabIndex = 4;
             label3.Text = "Amount:";
             // 
             // btnShowSameAmount
             // 
-            btnShowSameAmount.Location = new Point(8, 175);
-            btnShowSameAmount.Margin = new Padding(2);
+            btnShowSameAmount.Location = new Point(11, 292);
             btnShowSameAmount.Name = "btnShowSameAmount";
-            btnShowSameAmount.Size = new Size(210, 22);
+            btnShowSameAmount.Size = new Size(300, 37);
             btnShowSameAmount.TabIndex = 5;
             btnShowSameAmount.Text = "Show expenses with same amount";
             btnShowSameAmount.UseVisualStyleBackColor = true;
@@ -158,26 +148,36 @@
             // 
             numCheck.DecimalPlaces = 2;
             numCheck.Increment = new decimal(new int[] { 5, 0, 0, 131072 });
-            numCheck.Location = new Point(74, 154);
-            numCheck.Margin = new Padding(2);
+            numCheck.Location = new Point(106, 257);
             numCheck.Name = "numCheck";
-            numCheck.Size = new Size(63, 23);
+            numCheck.Size = new Size(90, 31);
             numCheck.TabIndex = 6;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(270, 12);
+            label4.Location = new Point(386, 20);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(90, 15);
+            label4.Size = new Size(135, 25);
             label4.TabIndex = 7;
             label4.Text = "Transaction Log";
             // 
+            // lblTotalCost
+            // 
+            lblTotalCost.AutoSize = true;
+            lblTotalCost.Location = new Point(386, 305);
+            lblTotalCost.Name = "lblTotalCost";
+            lblTotalCost.Size = new Size(91, 25);
+            lblTotalCost.TabIndex = 8;
+            lblTotalCost.Text = "Total cost:";
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 206);
+            ClientSize = new Size(604, 343);
+            Controls.Add(lblTotalCost);
             Controls.Add(label4);
             Controls.Add(numCheck);
             Controls.Add(btnShowSameAmount);
@@ -185,7 +185,6 @@
             Controls.Add(btnShowExpense);
             Controls.Add(lbxCollection);
             Controls.Add(groupBox1);
-            Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
@@ -210,5 +209,6 @@
         private TextBox tbxName;
         private NumericUpDown numCheck;
         private Label label4;
+        private Label lblTotalCost;
     }
 }

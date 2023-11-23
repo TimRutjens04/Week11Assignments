@@ -1,16 +1,17 @@
+using System.Drawing.Text;
 using System.Text;
 
 namespace FinanceExc
 {
     public partial class Form1 : Form
     {
-
+        private double balance = 0;
         public Form1()
         {
             InitializeComponent();
             numCheck.Maximum = decimal.MaxValue;
             numExpense.Maximum = decimal.MaxValue;
-
+            
         }
 
         public class Item
@@ -29,21 +30,24 @@ namespace FinanceExc
             item.Name = tbxName.Text;
 
             lbxCollection.Items.Add(item);
+            double totalPrice = balance += item.Cost;
+            string costText = Convert.ToString(totalPrice);
+            lblTotalCost.Text = $"Total cost: {costText}";
         }
 
         private void btnShowExpense_Click(object sender, EventArgs e)
         {
-            string message = "Items in collection:\n";
+            string message = "Items in collection: \n";
 
             foreach (var item in lbxCollection.Items)
             {
                 if (item is Item)
                 {
-                    message += $"{item}";
+                    message += $"{item}\n";
                 }
             }
 
-            MessageBox.Show(message.ToString());
+            MessageBox.Show(message);
         }
 
 
@@ -54,11 +58,11 @@ namespace FinanceExc
             bool findMatchingItems = false;
 
             foreach (var item in lbxCollection.Items)
-            { 
-                if (item is Item) 
+            {
+                if (item is Item)
                 {
-                    Item currentItem = (Item) item;
-                    if (currentItem.Cost == compareAmount) 
+                    Item currentItem = (Item)item;
+                    if (currentItem.Cost == compareAmount)
                     {
                         message += $"{currentItem}\n";
                         findMatchingItems = true;
