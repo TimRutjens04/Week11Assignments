@@ -23,7 +23,9 @@ namespace DiceRoller
             PictureBox pictureBox = new PictureBox
             {
                 ImageLocation = fileLocation,
+                SizeMode = PictureBoxSizeMode.Zoom,
                 Dock = DockStyle.Fill,
+                Width = this.Width,
             };
 
             Controls.Add(pictureBox);
