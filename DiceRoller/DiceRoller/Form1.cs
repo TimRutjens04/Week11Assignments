@@ -2,35 +2,32 @@ namespace DiceRoller
 {
     public partial class Form1 : Form
     {
-        private List<Form> formOptions = new List<Form>();
+        private List<Result> resultOptions = new List<Result>();
         Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
-            formOptions.Add(new dice1());
-            formOptions.Add(new dice2());
-            formOptions.Add(new dice3());
-            formOptions.Add(new dice4());
-            formOptions.Add(new dice5());
-            formOptions.Add(new dice6());
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            if (numCounter.Value > 0)
+            int numForms = (int)numCounter.Value;
+            for (int i = 0; i < numForms; i++)
             {
-                ThrowRandomDice((int)numCounter.Value);
+                OpenResultsForm();
             }
-            else { MessageBox.Show("C'mon man you can't throw 0 dice you know."); }
         }
 
-        private void ThrowRandomDice(int numberOfDice)
+        private void OpenResultsForm()
         {
-            for (int i = 0; i < numberOfDice; i++) 
-            {
-                Form randomDice = formOptions[random.Next(formOptions.Count)];
-                randomDice.Show();
-            }
+            Result resultsForm = new Result();
+
+            int randomDiceValue = random.Next(1, 7);
+            string fileLocation = $"Properties/DiceRolling_Images/DiceFace{randomDiceValue}.png";
+            resultsForm.DisplayImage(fileLocation);
+            resultsForm.Show();
+            resultOptions.Add(resultsForm);
         }
     }
 }
