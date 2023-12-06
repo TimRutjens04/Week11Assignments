@@ -6,5 +6,20 @@ namespace Lottery
         {
             InitializeComponent();
         }
+
+        private void btnCreateLottery_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOneByOne_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAllAtOnce_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
