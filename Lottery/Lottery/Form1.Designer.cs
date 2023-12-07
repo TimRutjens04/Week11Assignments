@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            label2 = new Label();
-            tbxMaxValue = new TextBox();
             tbxAmountOfNumbers = new TextBox();
+            tbxMaxValue = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
             btnCreateLottery = new Button();
             btnOneByOne = new Button();
             btnAllAtOnce = new Button();
             lbxCollection = new ListBox();
+            timerLottery = new System.Windows.Forms.Timer(components);
+            btnRestart = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,23 +56,12 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Lottery settings";
             // 
-            // label1
+            // tbxAmountOfNumbers
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 45);
-            label1.Name = "label1";
-            label1.Size = new Size(95, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Max value:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(178, 25);
-            label2.TabIndex = 1;
-            label2.Text = "Amount of numbers:";
+            tbxAmountOfNumbers.Location = new Point(190, 87);
+            tbxAmountOfNumbers.Name = "tbxAmountOfNumbers";
+            tbxAmountOfNumbers.Size = new Size(150, 31);
+            tbxAmountOfNumbers.TabIndex = 3;
             // 
             // tbxMaxValue
             // 
@@ -78,12 +70,23 @@
             tbxMaxValue.Size = new Size(150, 31);
             tbxMaxValue.TabIndex = 2;
             // 
-            // tbxAmountOfNumbers
+            // label2
             // 
-            tbxAmountOfNumbers.Location = new Point(190, 87);
-            tbxAmountOfNumbers.Name = "tbxAmountOfNumbers";
-            tbxAmountOfNumbers.Size = new Size(150, 31);
-            tbxAmountOfNumbers.TabIndex = 3;
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 87);
+            label2.Name = "label2";
+            label2.Size = new Size(144, 25);
+            label2.TabIndex = 1;
+            label2.Text = "Amount of balls:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Max value:";
             // 
             // btnCreateLottery
             // 
@@ -124,11 +127,26 @@
             lbxCollection.Size = new Size(316, 429);
             lbxCollection.TabIndex = 4;
             // 
+            // timerLottery
+            // 
+            timerLottery.Interval = 200;
+            // 
+            // btnRestart
+            // 
+            btnRestart.Location = new Point(18, 419);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(112, 34);
+            btnRestart.TabIndex = 5;
+            btnRestart.Text = "Restart";
+            btnRestart.UseVisualStyleBackColor = true;
+            btnRestart.Click += btnRestart_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(726, 477);
+            Controls.Add(btnRestart);
             Controls.Add(lbxCollection);
             Controls.Add(btnAllAtOnce);
             Controls.Add(btnOneByOne);
@@ -152,5 +170,7 @@
         private Button btnOneByOne;
         private Button btnAllAtOnce;
         private ListBox lbxCollection;
+        private System.Windows.Forms.Timer timerLottery;
+        private Button btnRestart;
     }
 }

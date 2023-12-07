@@ -12,36 +12,56 @@ namespace Lottery
         int lastBallDrawnIndex;
         List<int> possibleNumbers;
         Random random;
+        public bool IsValid;
 
         public Lottery(int maxValue, int nrOfBalls) 
         {
+
+            if (maxValue < nrOfBalls) 
+            {
+                IsValid = false;
+                return;
+            }
+
+            IsValid = true;
             ballsDrawn = new int[nrOfBalls];
             lastBallDrawnIndex = 0;
             possibleNumbers = new List<int>();
-            for (int i = 0; i < nrOfBalls; i++) 
+            for (int i = 0; i < maxValue; i++) 
             {
                 possibleNumbers.Add(i);
             }
             random = new Random();
         }
 
-        public int DrawNextNumber() 
+        public int DrawNextNumber()
         {
-            int newDraw = possibleNumbers[random.Next(possibleNumbers.Count)];
-            possibleNumbers.Remove(newDraw);
-            ballsDrawn[lastBallDrawnIndex] = newDraw;
-            lastBallDrawnIndex++;
-            return newDraw;
+            if (possibleNumbers.Count > 0)
+            {
+                int randomIndex = random.Next(possibleNumbers.Count);
+                int newDraw = possibleNumbers[randomIndex];
+                possibleNumbers.RemoveAt(randomIndex);
+                ballsDrawn[lastBallDrawnIndex] = newDraw;
+                lastBallDrawnIndex++;
+                return newDraw;
+            }
+            else { return -1; }
+           
+           
+             
+           
         }
 
-        public int[] DrawAllNumbers() 
+
+        public int[] DrawAllNumbers()
         {
-            while (ballsDrawn.Contains(0)) 
+            for (int i = 0; i < ballsDrawn.Length; i++)
             {
-                _ = DrawNextNumber();
+                DrawNextNumber();
             }
             return ballsDrawn;
         }
+
 
 
 
